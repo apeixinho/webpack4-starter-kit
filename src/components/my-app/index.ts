@@ -4,14 +4,14 @@ import view from './template.html';
 const html = String.raw;
 
 export default class MyApp extends HTMLElement {
-  static template() {
+  static template(): string {
     return html`${view}`;
   }
 
-  connectedCallback() {
+  connectedCallback(): void {
     this.appendChild(template.content.cloneNode(true));
   }
 }
 
-let template = document.createElement('template');
+const template: HTMLTemplateElement = document.createElement('template');
 template.innerHTML = MyApp.template();

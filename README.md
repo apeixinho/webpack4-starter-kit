@@ -12,7 +12,7 @@ Webpack 4 with webpack-dev-server configuration (and Web Components).
 * Clone this repository
 
 ```
-git clone https://github.com/king-prawns/webpack4-starter-kit.git [your-app-name]
+git clone -b typescript https://github.com/king-prawns/webpack4-starter-kit.git [your-app-name]
 ```
 
 Remove the .git folder and change details within:
@@ -39,11 +39,11 @@ $ yarn dev
 # Build command
 $ yarn build
 
-# Lint with ESLint
+# Lint with TSLint
 $ yarn lint
 
-# Run Flow
-$ yarn flow
+# Run only type checking
+$ yarn tc
 
 # Run unit tests (ava + instanbul)
 $ yarn test
@@ -58,13 +58,12 @@ $ yarn httpserver
 * [Webpack 4](https://github.com/webpack/webpack)
 * [Webpack Dev Server](https://github.com/webpack/webpack-dev-server)
 * [HMR](https://webpack.js.org/concepts/hot-module-replacement/)
-* [Babel](https://babeljs.io/)
-* [Flow](https://flow.org/)
-* [EsLint](https://eslint.org/docs/user-guide/getting-started)
-* [StyleLint](https://github.com/stylelint/stylelint)
+* [TypeScript](http://www.typescriptlang.org/)
+* [TSLint](https://palantir.github.io/tslint/)
+* <s>[StyleLint](https://github.com/stylelint/stylelint)</s> [(open issue)](https://github.com/JaKXz/stylelint-webpack-plugin/issues/137)
 * [Sass](https://github.com/webpack-contrib/sass-loader)
 * [Autoprefixer](https://github.com/postcss/autoprefixer)
 * [Ava](https://github.com/avajs/ava)
-* [nyc](https://github.com/istanbuljs/nyc)
+* <s>[nyc](https://github.com/istanbuljs/nyc)</s> [(open issue)](https://github.com/andywer/ava-ts/issues/7)
 * [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
 * Webpack Plugins: Html, Copy, ExtractText, Define

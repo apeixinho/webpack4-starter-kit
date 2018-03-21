@@ -13,7 +13,7 @@ module.exports = merge(base, {
   output  : {
     path       : path.resolve(__dirname, '../dist'),
     publicPath : '/',
-    filename   : '[chunkhash].app.js'
+    filename   : 'app.js'
   },
   module: {
     rules: [{

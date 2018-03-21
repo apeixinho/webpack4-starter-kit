@@ -9,7 +9,7 @@ const TITLE = 'DEV - ';
 
 module.exports = merge(base, {
   mode    : 'development',
-  devtool : 'eval-source-map',
+  devtool : 'inline-source-map',
   output  : {
     filename   : 'app.js',
     publicPath : '/'

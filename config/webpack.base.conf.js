@@ -1,7 +1,9 @@
-// TODO: https://github.com/JaKXz/stylelint-webpack-plugin/issues/137
 // const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js']
+  },
   module: {
     rules: [{
       test    : /\.html$/,
@@ -10,14 +12,14 @@ module.exports = {
     },
     {
       enforce : 'pre',
-      test    : /\.js$/,
+      test    : /\.ts$/,
       exclude : [/node_modules/],
-      loader  : 'eslint-loader'
+      loader  : 'tslint-loader'
     },
     {
-      test    : /\.js?$/,
+      test    : /\.tsx?$/,
       exclude : [/node_modules/],
-      loader  : 'babel-loader'
+      loader  : 'ts-loader'
     },
     {
       test    : /\.(woff(2)?|eot|ttf|otf|png|jpe?g|gif|svg)$/,
