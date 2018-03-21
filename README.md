@@ -45,7 +45,7 @@ $ yarn lint
 # Run only type checking
 $ yarn tc
 
-# Run unit tests (ava + instanbul)
+# Run unit tests (ava-ts)
 $ yarn test
 
 # Runs http-server on port 8082
