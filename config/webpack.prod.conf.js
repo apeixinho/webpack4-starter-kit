@@ -9,7 +9,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = merge(base, {
   mode    : 'production',
-  devtool : 'source-map',
   output  : {
     path       : path.resolve(__dirname, '../dist'),
     publicPath : '/',
