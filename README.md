@@ -60,7 +60,7 @@ $ yarn httpserver
 * [HMR](https://webpack.js.org/concepts/hot-module-replacement/)
 * [TypeScript](http://www.typescriptlang.org/)
 * [TSLint](https://palantir.github.io/tslint/)
-* <s>[StyleLint](https://github.com/stylelint/stylelint)</s> [(open issue)](https://github.com/JaKXz/stylelint-webpack-plugin/issues/137)
+* [StyleLint](https://github.com/stylelint/stylelint)
 * [Sass](https://github.com/webpack-contrib/sass-loader)
 * [Autoprefixer](https://github.com/postcss/autoprefixer)
 * [Ava](https://github.com/avajs/ava)
