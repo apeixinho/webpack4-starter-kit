@@ -1,5 +1,7 @@
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
+process.noDeprecation = true;
+
 module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js']
