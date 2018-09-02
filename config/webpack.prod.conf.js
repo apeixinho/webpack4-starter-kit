@@ -2,61 +2,72 @@ const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const base = require('./webpack.base.conf');
-const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const OfflinePlugin = require('offline-plugin');
 
 module.exports = merge(base, {
   mode    : 'production',
+  // devtool : 'source-map', // remove this comment if you want JS source maps
   output  : {
     path       : path.resolve(__dirname, '../dist'),
     publicPath : '/',
     filename   : 'app.js'
   },
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        cache     : true,
+        parallel  : true,
+        sourceMap : false // set to true if you want JS source maps
+      }),
+      new OptimizeCSSAssetsPlugin({
+        cssProcessorOptions: {
+          map: {
+            inline     : false,
+            annotation : true
+          }
+        }
+      })
+    ]
+  },
   module: {
     rules: [{
-      test : /(\.scss|\.css)$/,
-      use  : ExtractTextPlugin.extract({
-        use: [
-          {
-            loader  : 'css-loader', // translates CSS into CommonJS
-            options : {
-              minimize  : true,
-              sourceMap : true
-            }
-          },
-          {
-            loader  : 'postcss-loader', // postprocesses CSS
-            options : {
-              sourceMap : true,
-              ident     : 'postcss',
-              plugins   : () => [
-                autoprefixer()
-              ]
-            }
-          },
-          {
-            // resolves relative paths based on the original source file.
-            loader: 'resolve-url-loader'
-          },
-          {
-            loader  : 'sass-loader', // compiles Sass to CSS
-            options : {
-              sourceMap: true
-            }
+      test : /(\.css|\.pcss)$/,
+      use: [
+        {
+          loader: MiniCssExtractPlugin.loader
+        },
+        {
+          loader  : 'css-loader', // translates CSS into CommonJS
+          options : {
+            minimize  : true,
+            sourceMap : true,
+            importLoaders : 2
           }
-        ]
-      })
+        },
+        {
+          loader  : 'postcss-loader', // postprocesses CSS
+          options : {
+            sourceMap : true,
+            ident     : 'postcss'
+          }
+        },
+        {
+          // resolves relative paths based on the original source file.
+          loader: 'resolve-url-loader'
+        }
+      ]
     }]
   },
   plugins: [
     new CleanWebpackPlugin(['dist'], {verbose: false}),
-    new ExtractTextPlugin({
-      filename : '[chunkhash].app.css',
-      disable  : false
+    new MiniCssExtractPlugin({
+      filename: '[chunkhash].app.css'
     }),
     new HtmlWebpackPlugin({
       filename : path.resolve(__dirname, '../dist/index.html'),
