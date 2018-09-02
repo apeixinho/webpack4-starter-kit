@@ -75,7 +75,7 @@ $ yarn httpserver
 * [TypeScript](http://www.typescriptlang.org/)
 * [TSLint](https://palantir.github.io/tslint/)
 * [StyleLint](https://github.com/stylelint/stylelint)
-* [Sass](https://github.com/webpack-contrib/sass-loader)
+* [Postcss](https://github.com/postcss/postcss)
 * [Autoprefixer](https://github.com/postcss/autoprefixer)
 * [Ava](https://github.com/avajs/ava)
 * <s>[nyc](https://github.com/istanbuljs/nyc)</s> [(open issue)](https://github.com/andywer/ava-ts/issues/7)
